@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class CSVReader {
 
-    private ArrayList<String[]> mWineList;
+    private ArrayList<String> mWineList;
     private Context mContext;
     private String mFileLine;
 
@@ -31,19 +31,36 @@ public class CSVReader {
         ReadCSV(context);
     }
 
-    public ArrayList<String[]> ReadCSV(Context context) {
+    public String getProdId() {
+        return mProdId;
+    }
 
-        ArrayList<String[]> mWineList = new ArrayList<>();
+    public String getProdName() {
+        return mProdName;
+    }
+
+    public String getProdSize() {
+        return mProdSize;
+    }
+
+    public String getProdPack() {
+        return mProdPack;
+    }
+
+    public String getIsInUse() {
+        return mIsInUse;
+    }
+
+    public ArrayList<String> ReadCSV(Context context) {
+
+        int i = 0;
+        ArrayList<String> mWineList = new ArrayList<>();
         InputStream csvFile = context.getResources().openRawResource(R.raw.beverage_list);
-
-        try {
-            Scanner listReader = new Scanner(csvFile);
-            while (listReader.hasNext()) {
-                mFileLine = listReader.nextLine();
-                mFileLine.split(",");
-            }
+        Scanner listReader = new Scanner(csvFile);
+        while (listReader.hasNextLine()) {
+            mWineList.add(listReader.nextLine());
+            i++;
         }
-
         return mWineList;
     }
 
