@@ -1,11 +1,6 @@
 package edu.kvcc.cis298.cis298assignment3;
-
 import android.content.Context;
-
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,54 +9,42 @@ import java.util.Scanner;
 
 public class CSVReader {
 
-    private ArrayList<String> mWineList;
+    private WineCollection mWineCollection;
     private Context mContext;
-    private String mFileLine;
-
-    private String mProdId;
-    private String mProdName;
-    private String mProdSize;
-    private String mProdPack;
-    private String mIsInUse;
 
 
-    public CSVReader(Context context) {
+    public CSVReader(Context context, WineCollection collection) {
 
         mContext = context;
-        ReadCSV(context);
+        mWineCollection = collection;
+        ReadCSV(context, collection);
     }
 
-    public String getProdId() {
-        return mProdId;
-    }
+    private void ReadCSV(Context context, WineCollection collection) {
 
-    public String getProdName() {
-        return mProdName;
-    }
-
-    public String getProdSize() {
-        return mProdSize;
-    }
-
-    public String getProdPack() {
-        return mProdPack;
-    }
-
-    public String getIsInUse() {
-        return mIsInUse;
-    }
-
-    public ArrayList<String> ReadCSV(Context context) {
-
-        int i = 0;
-        ArrayList<String> mWineList = new ArrayList<>();
         InputStream csvFile = context.getResources().openRawResource(R.raw.beverage_list);
         Scanner listReader = new Scanner(csvFile);
-        while (listReader.hasNextLine()) {
-            mWineList.add(listReader.nextLine());
-            i++;
+        String wineLine;
+        while ((listReader.hasNextLine()) != false) {
+            wineLine = listReader.nextLine();
+            this.ProcessOneLine(wineLine, collection);
+
         }
-        return mWineList;
     }
 
+    private void ProcessOneLine(String line, WineCollection collection) {
+        String parts[] = line.split(",");
+
+        String id = parts[0];
+        String name = parts[1];
+        String pack =  parts[2];
+        String price = parts[3];
+        boolean active = false;
+        if (parts[4].matches("True"))
+        {
+            active = true;
+        }
+        collection.AddWineItem(id, name, pack, price, active);
+
+    }
 }
