@@ -18,6 +18,7 @@ public class CSVReader {
         mContext = context;
         mWineCollection = collection;
         ReadCSV(context, collection);
+
     }
 
     private void ReadCSV(Context context, WineCollection collection) {
@@ -25,10 +26,12 @@ public class CSVReader {
         InputStream csvFile = context.getResources().openRawResource(R.raw.beverage_list);
         Scanner listReader = new Scanner(csvFile);
         String wineLine;
-        while ((listReader.hasNextLine()) != false) {
+        while (listReader.hasNextLine()) {
             wineLine = listReader.nextLine();
-            this.ProcessOneLine(wineLine, collection);
-
+            i++;
+            if (!(wineLine.contentEquals(""))) {
+                this.ProcessOneLine(wineLine, collection);
+            }
         }
     }
 
