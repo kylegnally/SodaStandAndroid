@@ -4,11 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/wine_title_label"
+        style="?android:listSeparatorTextViewStyle"/>
+
     <EditText
         android:id="@+id/wine_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/wine_title_hint"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/wine_id_label"
+        style="?android:listSeparatorTextViewStyle"/>
 
+    <TextView
+        android:id="@+id/wine_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/wine_price_label"/>
 </LinearLayout>
