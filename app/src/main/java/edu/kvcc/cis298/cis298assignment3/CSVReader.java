@@ -28,7 +28,6 @@ public class CSVReader {
         String wineLine;
         while (listReader.hasNextLine()) {
             wineLine = listReader.nextLine();
-            i++;
             if (!(wineLine.contentEquals(""))) {
                 this.ProcessOneLine(wineLine, collection);
             }
