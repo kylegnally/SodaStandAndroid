@@ -11,6 +11,8 @@ public class Wine {
     private UUID mId;
     private String mProductName;
     private String mProductId;
+    private String mProductPack;
+    private Boolean mProductActive;
     private String mProductPrice;
 
     public Wine() {
@@ -19,6 +21,22 @@ public class Wine {
 
     public UUID getId() {
         return mId;
+    }
+
+    public String getProductPack() {
+        return mProductPack;
+    }
+
+    public void setProductPack(String productPack) {
+        mProductPack = productPack;
+    }
+
+    public Boolean getProductActive() {
+        return mProductActive;
+    }
+
+    public void setProductActive(Boolean productActive) {
+        mProductActive = productActive;
     }
 
     public String getProductName() {

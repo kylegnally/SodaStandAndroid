@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CIS298Assignment3</string>
+    <string name="wine_title_hint">Enter a name for this beverage.</string>
 </resources>
