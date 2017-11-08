@@ -46,6 +46,7 @@ public class CSVReader {
         {
             active = true;
         }
+
         collection.AddWineItem(id, name, pack, price, active);
 
     }

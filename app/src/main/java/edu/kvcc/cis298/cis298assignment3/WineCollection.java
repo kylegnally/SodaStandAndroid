@@ -15,8 +15,13 @@ public class WineCollection  {
 
     }
 
-    public void AddWineItem(String id, String pack, String name, String size, Boolean active) {
-        mWineList.add(new WineItem(id, pack, name, size, active));
+    // add this to the WineShop class and remove it from here.
 
+    public ArrayList<WineItem> getWineList() {
+        return mWineList;
     }
+
+//    public void AddWineItem(String id, String pack, String name, String size, Boolean active) {
+//        mWineList.add(new WineItem(id, pack, name, size, active));
+//    }
 }

@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 
+import java.util.ArrayList;
+
 public class WineActivity extends FragmentActivity {
 
     public CSVReader mWineListCSV;
@@ -25,6 +27,5 @@ public class WineActivity extends FragmentActivity {
 
         mWineCollection = new WineCollection();
         mWineListCSV = new CSVReader(this, mWineCollection);
-
     }
 }

@@ -8,6 +8,9 @@ import java.util.UUID;
 
 public class Wine {
 
+    // This class isn't necessary. Use the WintItem clas for everything in here.
+    // UUID isn't necessary.
+
     private UUID mId;
     private String mProductName;
     private String mProductId;
