@@ -1,5 +1,7 @@
 package edu.kvcc.cis298.cis298assignment3;
 import android.content.Context;
+import android.content.res.Resources;
+
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -9,19 +11,19 @@ import java.util.Scanner;
 
 public class CSVReader {
 
-    private WineCollection mWineCollection;
+    private WineShop mWineCollection;
     private Context mContext;
 
 
-    public CSVReader(Context context, WineCollection collection) {
+    public CSVReader(Context context) {
 
         mContext = context;
-        mWineCollection = collection;
-        ReadCSV(context, collection);
+        // mWineCollection = collection;
+        ReadCSV(mContext);
 
     }
 
-    private void ReadCSV(Context context, WineCollection collection) {
+    private void ReadCSV(Context context) {
 
         InputStream csvFile = context.getResources().openRawResource(R.raw.beverage_list);
         Scanner listReader = new Scanner(csvFile);
@@ -29,12 +31,12 @@ public class CSVReader {
         while (listReader.hasNextLine()) {
             wineLine = listReader.nextLine();
             if (!(wineLine.contentEquals(""))) {
-                this.ProcessOneLine(wineLine, collection);
+                this.ProcessOneLine(wineLine);
             }
         }
     }
 
-    private void ProcessOneLine(String line, WineCollection collection) {
+    private void ProcessOneLine(String line) {
         String parts[] = line.split(",");
 
         String id = parts[0];
@@ -47,7 +49,7 @@ public class CSVReader {
             active = true;
         }
 
-        collection.AddWineItem(id, name, pack, price, active);
+        mWineCollection.AddWineItem(id, name, pack, price, active);
 
     }
 }

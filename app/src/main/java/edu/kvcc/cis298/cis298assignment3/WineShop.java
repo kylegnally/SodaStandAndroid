@@ -14,6 +14,9 @@ public class WineShop {
 
      private static WineShop sWineShop;
      private List<WineItem> mWines;
+     private CSVReader mReader;
+     private Context mContext;
+
 
      public static WineShop get (Context context) {
 
@@ -33,14 +36,15 @@ public class WineShop {
         mWines.add(new WineItem(id, pack, name, size, active));
     }
 
-     public List<WineItem> getWines() {
+     public List<WineItem> getWines(Context context) {
+         mReader = new CSVReader(context);
          return mWines;
      }
 
-     public Wine getWine(UUID id) {
+     public WineItem getWine(String id) {
          for (WineItem wine : mWines) {
              if (wine.getId().equals(id)) {
-                 return mWines;
+                 return wine;
              }
          }
          return null;
