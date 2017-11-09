@@ -32,15 +32,15 @@ public class WineListFragment extends Fragment {
         mWineRecyclerView = (RecyclerView) view.findViewById(R.id.wine_recycler_view);
         mWineRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        updateUI();
+        updateUI(mContext);
 
         return view;
     }
 
-    private void updateUI() {
+    private void updateUI(Context context) {
 
         WineShop wineShop = WineShop.get(getActivity());
-        List<WineItem> wines = wineShop.getWines(mContext);
+        List<WineItem> wines = wineShop.getWines();
 
         mAdapter = new WineAdapter(wines);
         mWineRecyclerView.setAdapter(mAdapter);

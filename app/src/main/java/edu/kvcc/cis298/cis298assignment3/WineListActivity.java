@@ -9,9 +9,13 @@ import android.support.v4.app.Fragment;
 
 public class WineListActivity extends SingleFragmentActivity {
 
+    private CSVReader mReader;
+    private WineShop mWineShop;
+
     @Override
     protected Fragment createFragment() {
 
+        mReader = new CSVReader(this, mWineShop);
         return new WineListFragment();
 
     }

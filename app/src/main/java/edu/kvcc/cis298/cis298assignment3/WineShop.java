@@ -36,8 +36,7 @@ public class WineShop {
         mWines.add(new WineItem(id, pack, name, size, active));
     }
 
-     public List<WineItem> getWines(Context context) {
-         mReader = new CSVReader(context);
+     public List<WineItem> getWines() {
          return mWines;
      }
 

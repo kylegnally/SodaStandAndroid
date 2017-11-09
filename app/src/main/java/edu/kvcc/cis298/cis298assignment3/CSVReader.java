@@ -15,15 +15,15 @@ public class CSVReader {
     private Context mContext;
 
 
-    public CSVReader(Context context) {
+    public CSVReader(Context context, WineShop collection) {
 
         mContext = context;
-        // mWineCollection = collection;
-        ReadCSV(mContext);
+        mWineCollection = collection;
+        ReadCSV(mContext, collection);
 
     }
 
-    private void ReadCSV(Context context) {
+    private void ReadCSV(Context context, WineShop collection) {
 
         InputStream csvFile = context.getResources().openRawResource(R.raw.beverage_list);
         Scanner listReader = new Scanner(csvFile);
@@ -31,12 +31,12 @@ public class CSVReader {
         while (listReader.hasNextLine()) {
             wineLine = listReader.nextLine();
             if (!(wineLine.contentEquals(""))) {
-                this.ProcessOneLine(wineLine);
+                this.ProcessOneLine(wineLine, collection);
             }
         }
     }
 
-    private void ProcessOneLine(String line) {
+    private void ProcessOneLine(String line, WineShop wineCollection) {
         String parts[] = line.split(",");
 
         String id = parts[0];
@@ -49,7 +49,7 @@ public class CSVReader {
             active = true;
         }
 
-        mWineCollection.AddWineItem(id, name, pack, price, active);
+        wineCollection.AddWineItem(id, name, pack, price, active);
 
     }
 }

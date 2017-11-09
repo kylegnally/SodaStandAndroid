@@ -5,13 +5,13 @@ import android.support.v4.app.Fragment;
 public class WineActivity extends SingleFragmentActivity {
 
     public CSVReader mWineListCSV;
-    //public WineShop mWineCollection;
+    public WineShop mWineCollection;
 
     @Override
     protected Fragment createFragment() {
 
         //mWineCollection = new WineItem();
-        mWineListCSV = new CSVReader(this);
+        mWineListCSV = new CSVReader(this, mWineCollection);
 
         return new WineFragment();
 
