@@ -13,9 +13,6 @@ public class WineShop {
 
      private static WineShop sWineShop;
      private List<WineItem> mWines;
-     private CSVReader mReader;
-     private Context mContext;
-
 
      public static WineShop get (Context context) {
 
@@ -32,7 +29,6 @@ public class WineShop {
      }
 
      public List<WineItem> getWines() {
-         mWines = CSVReader.getWineList();
          return mWines;
      }
 

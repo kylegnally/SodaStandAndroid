@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class CSVReader {
 
     private Context mContext;
-    private ArrayList<WineItem> mWine;
+    private static ArrayList<WineItem> mWine;
 
 
     public CSVReader(Context context) {
@@ -43,14 +43,9 @@ public class CSVReader {
 
     }
 
-    public ArrayList<WineItem> getWineList() {
+    public static ArrayList<WineItem> getWineList() {
         return mWine;
     }
-
-    public void AddWineItem(String id, String pack, String name, String size, Boolean active) {
-        mWine.add(new WineItem());
-    }
-
 
 
     private void ProcessOneLine(String line, ArrayList wines) {
@@ -67,6 +62,9 @@ public class CSVReader {
         }
 
         AddWineItem(id, name, pack, price, active);
+    }
 
+    public void AddWineItem(String id, String pack, String name, String size, Boolean active) {
+        mWine.add(new WineItem());
     }
 }
