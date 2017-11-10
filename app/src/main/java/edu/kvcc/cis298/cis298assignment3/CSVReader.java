@@ -26,7 +26,7 @@ public class CSVReader {
 
     private void ReadCSV(Context context, ArrayList wines) {
 
-        InputStream csvFile = context.getResources().openRawResource(R.raw.beverage_list_trunc);
+        InputStream csvFile = context.getResources().openRawResource(R.raw.beverage_list);
         Scanner listReader = new Scanner(csvFile);
         String wineLine;
         try {

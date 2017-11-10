@@ -15,6 +15,10 @@ public class WineItem {
     private String mPrice;
     private boolean mIsActive;
 
+    public WineItem() {
+
+    }
+
     public WineItem(String id, String name, String pack, String price, Boolean active) {
         this.mId = id;
         this.mName = name;

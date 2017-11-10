@@ -25,7 +25,7 @@ public class WineFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mWine = new WineItem();
+        //mWine = new WineItem();
     }
 
     @Nullable
