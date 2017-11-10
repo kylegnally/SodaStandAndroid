@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,7 @@ public class WineListFragment extends Fragment {
     }
 
     // this is our ViewHolder. It expects a TextView and references that view
-    private class WineHolder extends RecyclerView.ViewHolder {
+    private class WineHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private WineItem mWine;
 
@@ -59,6 +60,7 @@ public class WineListFragment extends Fragment {
 
         public WineHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
 
             mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_wine_title_text_view);
             mIdTextView = (TextView) itemView.findViewById(R.id.list_item_wine_id_text_view);
@@ -71,6 +73,11 @@ public class WineListFragment extends Fragment {
             mTitleTextView.setText(mWine.getName());
             mIdTextView.setText(mWine.getId());
             mPriceTextView.setText(mWine.getPrice());
+        }
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(getActivity(), mWine.getName() + " clicked!", Toast.LENGTH_SHORT).show();
         }
     }
 
