@@ -15,7 +15,7 @@ public class WineListActivity extends SingleFragmentActivity {
     @Override
     protected Fragment createFragment() {
 
-        mReader = new CSVReader(this, mWineShop);
+        mReader = new CSVReader(this);
         return new WineListFragment();
 
     }

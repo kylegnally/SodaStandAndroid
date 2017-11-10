@@ -4,7 +4,6 @@ import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by kyleg on 11/7/2017.
@@ -31,11 +30,6 @@ public class WineShop {
      private WineShop(Context context) {
          mWines = new ArrayList<>();
      }
-
-    public void AddWineItem(String id, String pack, String name, String size, Boolean active) {
-        mWines.add(new WineItem(id, pack, name, size, active));
-    }
-
      public List<WineItem> getWines() {
          return mWines;
      }

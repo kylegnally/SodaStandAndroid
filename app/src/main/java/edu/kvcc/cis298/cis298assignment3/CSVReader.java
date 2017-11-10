@@ -3,6 +3,7 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -11,32 +12,40 @@ import java.util.Scanner;
 
 public class CSVReader {
 
-    private WineShop mWineCollection;
+    //private WineShop mWineCollection;
     private Context mContext;
+    private ArrayList<WineItem> mWine;
 
 
-    public CSVReader(Context context, WineShop collection) {
+    public CSVReader(Context context) {
 
+        mWine = new ArrayList<WineItem>();
         mContext = context;
-        mWineCollection = collection;
-        ReadCSV(mContext, collection);
+        //mWineCollection = collection;
+        ReadCSV(mContext, mWine);
 
     }
 
-    private void ReadCSV(Context context, WineShop collection) {
+    private void ReadCSV(Context context, ArrayList wines) {
 
-        InputStream csvFile = context.getResources().openRawResource(R.raw.beverage_list);
+        InputStream csvFile = context.getResources().openRawResource(R.raw.beverage_list_trunc);
         Scanner listReader = new Scanner(csvFile);
         String wineLine;
         while (listReader.hasNextLine()) {
             wineLine = listReader.nextLine();
             if (!(wineLine.contentEquals(""))) {
-                this.ProcessOneLine(wineLine, collection);
+                this.ProcessOneLine(wineLine, wines);
             }
         }
     }
 
-    private void ProcessOneLine(String line, WineShop wineCollection) {
+    public void AddWineItem(String id, String pack, String name, String size, Boolean active) {
+        mWine.add(new WineItem(id, pack, name, size, active));
+    }
+
+
+
+    private void ProcessOneLine(String line, ArrayList wines) {
         String parts[] = line.split(",");
 
         String id = parts[0];
@@ -49,7 +58,7 @@ public class CSVReader {
             active = true;
         }
 
-        wineCollection.AddWineItem(id, name, pack, price, active);
+        AddWineItem(id, name, pack, price, active);
 
     }
 }

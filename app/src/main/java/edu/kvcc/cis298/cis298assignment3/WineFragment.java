@@ -18,7 +18,7 @@ import android.widget.TextView;
 public class WineFragment extends Fragment {
 
     private Wine mWine;
-    private EditText mProductNameField;
+    // private EditText mProductNameField;
     private TextView mProductName;
     private TextView mProductId;
     private TextView mProductPrice;
@@ -33,27 +33,27 @@ public class WineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_wine, container, false);
-
-        mProductNameField = (EditText) v.findViewById(R.id.wine_name);
-        mProductNameField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                mWine.setProductName(s.toString());
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
+//
+//        mProductNameField = (EditText) v.findViewById(R.id.wine_name);
+//        mProductNameField.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                mWine.setProductName(s.toString());
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
+//
         mProductName = (TextView) v.findViewById(R.id.wine_name);
         mProductName.addTextChangedListener(new TextWatcher() {
             @Override
