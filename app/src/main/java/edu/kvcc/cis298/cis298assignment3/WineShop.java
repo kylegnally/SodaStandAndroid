@@ -30,7 +30,9 @@ public class WineShop {
      private WineShop(Context context) {
          mWines = new ArrayList<>();
      }
+
      public List<WineItem> getWines() {
+         mWines = CSVReader.getWineList();
          return mWines;
      }
 

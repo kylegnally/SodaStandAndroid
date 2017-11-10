@@ -15,12 +15,7 @@ public class WineItem {
     private String mPrice;
     private boolean mIsActive;
 
-    public WineItem(String id, String name, String pack, String price, Boolean active){
-        this.mId = id;
-        this.mName = name;
-        this.mPack = pack;
-        this.mPrice = price;
-        this.mIsActive = active;
+    public WineItem() {
 
     }
 
@@ -64,3 +59,4 @@ public class WineItem {
         mIsActive = active;
     }
 }
+

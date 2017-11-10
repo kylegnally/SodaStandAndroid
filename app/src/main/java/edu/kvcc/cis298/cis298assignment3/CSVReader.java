@@ -12,16 +12,14 @@ import java.util.Scanner;
 
 public class CSVReader {
 
-    //private WineShop mWineCollection;
     private Context mContext;
     private ArrayList<WineItem> mWine;
 
 
     public CSVReader(Context context) {
 
-        mWine = new ArrayList<WineItem>();
+        mWine = new ArrayList<>();
         mContext = context;
-        //mWineCollection = collection;
         ReadCSV(mContext, mWine);
 
     }
@@ -31,16 +29,26 @@ public class CSVReader {
         InputStream csvFile = context.getResources().openRawResource(R.raw.beverage_list_trunc);
         Scanner listReader = new Scanner(csvFile);
         String wineLine;
-        while (listReader.hasNextLine()) {
-            wineLine = listReader.nextLine();
-            if (!(wineLine.contentEquals(""))) {
-                this.ProcessOneLine(wineLine, wines);
+        try {
+            while (listReader.hasNextLine()) {
+                wineLine = listReader.nextLine();
+                if (!(wineLine.contentEquals(""))) {
+                    this.ProcessOneLine(wineLine, wines);
+                }
             }
         }
+        finally {
+            listReader.close();
+        }
+
+    }
+
+    public ArrayList<WineItem> getWineList() {
+        return mWine;
     }
 
     public void AddWineItem(String id, String pack, String name, String size, Boolean active) {
-        mWine.add(new WineItem(id, pack, name, size, active));
+        mWine.add(new WineItem());
     }
 
 
