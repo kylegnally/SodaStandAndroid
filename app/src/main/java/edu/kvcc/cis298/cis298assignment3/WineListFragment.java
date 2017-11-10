@@ -51,13 +51,26 @@ public class WineListFragment extends Fragment {
     // this is our ViewHolder. It expects a TextView and references that view
     private class WineHolder extends RecyclerView.ViewHolder {
 
-        public TextView mTitleTextView;
+        private WineItem mWine;
+
+        private TextView mTitleTextView;
+        private TextView mIdTextView;
+        private TextView mPriceTextView;
 
         public WineHolder(View itemView) {
             super(itemView);
 
-            mTitleTextView = (TextView) itemView;
+            mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_wine_title_text_view);
+            mIdTextView = (TextView) itemView.findViewById(R.id.list_item_wine_id_text_view);
+            mPriceTextView = (TextView) itemView.findViewById(R.id.list_item_wine_price_text_view);
 
+        }
+
+        public void bindWine(WineItem wine) {
+            mWine = wine;
+            mTitleTextView.setText(mWine.getName());
+            mIdTextView.setText(mWine.getId());
+            mPriceTextView.setText(mWine.getPrice());
         }
     }
 
@@ -74,14 +87,14 @@ public class WineListFragment extends Fragment {
         @Override
         public WineHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View view = layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+            View view = layoutInflater.inflate(R.layout.list_item_wine, parent, false);
             return new WineHolder(view);
         }
 
         @Override
         public void onBindViewHolder(WineHolder holder, int position) {
             WineItem wine = mWines.get(position);
-            holder.mTitleTextView.setText(wine.getName());
+            holder.bindWine(wine);
         }
 
         @Override
