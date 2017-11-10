@@ -64,7 +64,7 @@ public class CSVReader {
         AddWineItem(id, name, pack, price, active);
     }
 
-    public void AddWineItem(String id, String pack, String name, String size, Boolean active) {
-        mWine.add(new WineItem());
+    public void AddWineItem(String id, String name, String pack, String price, Boolean active) {
+        mWine.add(new WineItem(id, name, pack, price, active));
     }
 }
