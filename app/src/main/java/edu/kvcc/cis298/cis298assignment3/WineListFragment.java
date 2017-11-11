@@ -84,7 +84,7 @@ public class WineListFragment extends Fragment {
         @Override
         public void onClick(View v) {
             //Intent intent = new Intent(getActivity(), WineActivity.class);
-            Intent intent = WineActivity.newIntent(getActivity(), mWine.getId());
+            Intent intent = WinePagerActivity.newIntent(getActivity(), mWine.getId());
             startActivity(intent);
         }
     }
