@@ -1,5 +1,4 @@
 package edu.kvcc.cis298.cis298assignment3;
-import java.util.UUID;
 
 /**
  * Created by kyleg on 10/29/2017.
@@ -7,17 +6,12 @@ import java.util.UUID;
 
 public class WineItem {
 
-    // add getter and setter for these and use the getId() method here in the WineShop class
-
     private String mId;
     private String mName;
     private String mPack;
     private String mPrice;
     private boolean mIsActive;
 
-    public WineItem() {
-
-    }
 
     public WineItem(String id, String name, String pack, String price, Boolean active) {
         this.mId = id;

@@ -1,6 +1,5 @@
 package edu.kvcc.cis298.cis298assignment3;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 
 /**
@@ -10,7 +9,6 @@ import android.support.v4.app.Fragment;
 public class WineListActivity extends SingleFragmentActivity {
 
     private CSVReader mReader;
-    private WineShop mWineShop;
 
     @Override
     protected Fragment createFragment() {

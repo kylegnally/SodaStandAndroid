@@ -1,9 +1,6 @@
 package edu.kvcc.cis298.cis298assignment3;
 import android.content.Context;
-import android.content.res.Resources;
-
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -38,7 +35,6 @@ public class CSVReader {
         finally {
             listReader.close();
         }
-
     }
 
     private void ProcessOneLine(String line) {

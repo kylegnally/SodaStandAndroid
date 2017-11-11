@@ -19,7 +19,9 @@ import java.util.List;
 
 public class WinePagerActivity extends FragmentActivity {
 
+    // String to hold our extra
     private static final String EXTRA_WINE_ID = "edu.kvcc.cis298.assignment3.wine_id";
+
 
     private ViewPager mViewPager;
     private List<WineItem> mWines;
