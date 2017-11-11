@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@id/list_item_wine_title_text_view"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:padding="4dp"/>
 
     <TextView
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/list_item_wine_price_text_view"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold"
         tools:text="Wine Title"/>
 
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/list_item_wine_price_text_view"
         android:layout_below="@id/list_item_wine_title_text_view"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:padding="4dp"
         tools:text="Wine Id"/>
     <ImageView

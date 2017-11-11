@@ -50,8 +50,15 @@ public class WineListFragment extends Fragment {
         WineShop wineShop = WineShop.get(getActivity());
         List<WineItem> wines = wineShop.getWines();
 
-        mAdapter = new WineAdapter(wines);
-        mWineRecyclerView.setAdapter(mAdapter);
+        if (mAdapter == null) {
+
+            mAdapter = new WineAdapter(wines);
+            mWineRecyclerView.setAdapter(mAdapter);
+
+        } else {
+
+            mAdapter.notifyDataSetChanged();
+        }
 
     }
 

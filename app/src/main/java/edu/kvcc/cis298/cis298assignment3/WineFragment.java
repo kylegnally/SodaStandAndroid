@@ -22,11 +22,6 @@ public class WineFragment extends Fragment {
     private static final String ARG_WINE_ID = "wine_id";
 
     private WineItem mWine;
-    private EditText mProductName;
-    private EditText mProductId;
-    private EditText mProductPack;
-    private EditText mProductPrice;
-    private CheckBox mProductActive;
 
     public static WineFragment newInstance(String wineId) {
         Bundle args = new Bundle();
@@ -41,7 +36,6 @@ public class WineFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String wineId = (String) getArguments().getSerializable(ARG_WINE_ID);
-        // String wineId = (String) getActivity().getIntent().getSerializableExtra(WineActivity.EXTRA_WINE_ID);
         mWine = WineShop.get(getActivity()).getWine(wineId);
     }
 
@@ -50,9 +44,9 @@ public class WineFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_wine, container, false);
 
-        mProductName = (EditText) v.findViewById(R.id.wine_name);
-        mProductName.setText(mWine.getName());
-        mProductName.addTextChangedListener(new TextWatcher() {
+        EditText productName = (EditText) v.findViewById(R.id.wine_name);
+        productName.setText(mWine.getName());
+        productName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int before, int after) {
 
@@ -71,9 +65,9 @@ public class WineFragment extends Fragment {
             }
         });
 
-        mProductId = (EditText) v.findViewById(R.id.wine_id);
-        mProductId.setText(mWine.getId());
-        mProductId.addTextChangedListener(new TextWatcher() {
+        EditText productId = (EditText) v.findViewById(R.id.wine_id);
+        productId.setText(mWine.getId());
+        productId.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int before, int after) {
 
@@ -92,9 +86,9 @@ public class WineFragment extends Fragment {
             }
         });
 
-        mProductPack = (EditText) v.findViewById(R.id.wine_pack);
-        mProductPack.setText(mWine.getPack());
-        mProductPack.addTextChangedListener(new TextWatcher() {
+        EditText productPack = (EditText) v.findViewById(R.id.wine_pack);
+        productPack.setText(mWine.getPack());
+        productPack.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int before, int after) {
 
@@ -113,9 +107,9 @@ public class WineFragment extends Fragment {
             }
         });
 
-        mProductPrice = (EditText) v.findViewById(R.id.wine_price);
-        mProductPrice.setText(mWine.getPrice());
-        mProductPrice.addTextChangedListener(new TextWatcher() {
+        EditText productPrice = (EditText) v.findViewById(R.id.wine_price);
+        productPrice.setText(mWine.getPrice());
+        productPrice.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int before, int after) {
 
@@ -134,9 +128,9 @@ public class WineFragment extends Fragment {
             }
         });
 
-        mProductActive = (CheckBox) v.findViewById(R.id.wine_active);
-        mProductActive.setChecked(mWine.isActive());
-        mProductActive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        CheckBox productActive = (CheckBox) v.findViewById(R.id.wine_active);
+        productActive.setChecked(mWine.isActive());
+        productActive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 mWine.setActive(b);
