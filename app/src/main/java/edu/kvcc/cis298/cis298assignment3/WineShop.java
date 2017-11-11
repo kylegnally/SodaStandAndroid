@@ -11,40 +11,52 @@ import java.util.List;
 
 public class WineShop {
 
-     private static WineShop sWineShop;
-     private ArrayList<WineItem> mWines;
+    // working variables
+    // static variable to hold an instance of this class
+    private static WineShop sWineShop;
 
-     public static WineShop get (Context context) {
+    // a list to hold all our wines
+    private ArrayList<WineItem> mWines;
 
-         if (sWineShop == null) {
-             sWineShop = new WineShop(context);
-         }
+    // public static method which is used to get the same
+    // instance that is in mWineShop (this is the singleton)
+    public static WineShop get (Context context) {
 
-         return sWineShop;
+        if (sWineShop == null) {
+            sWineShop = new WineShop(context);
+        }
 
-     }
+        return sWineShop;
 
-     private WineShop(Context context) {
+    }
+
+    // private constructor that is used to make sure the only code
+    // that can be used to make an instance of WineShop is this class.
+    // That instance is in the get method above.
+    private WineShop(Context context) {
          mWines = new ArrayList<>();
      }
 
 
-     public void addWineItem(String id, String name, String pack, String price, Boolean active) {
-         mWines.add(new WineItem(id, name, pack, price, active));
-     }
+    // method to add a single item to the ArrayList above. This will add
+    // a WineItem object with parameters id, name, pack, etc.
+    public void addWineItem(String id, String name, String pack, String price, Boolean active) {
+        mWines.add(new WineItem(id, name, pack, price, active));
+    }
 
-
-     public List<WineItem> getWines() {
+    // getter for the list of wines
+    public ArrayList<WineItem> getWines() {
          return mWines;
      }
 
-     public WineItem getWine(String id) {
-         for (WineItem wine : mWines) {
-             if (wine.getId().equals(id)) {
-                 return wine;
-             }
-         }
-         return null;
-     }
-
+    // getter for a single wine. Uses the ID of any given wine
+    // as a unique identifier (its use is similar to a UUID in this case)
+    public WineItem getWine(String id) {
+        for (WineItem wine : mWines) {
+            if (wine.getId().equals(id)) {
+                return wine;
+            }
+        }
+        return null;
+    }
 }
