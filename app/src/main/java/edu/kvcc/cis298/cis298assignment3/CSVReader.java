@@ -50,7 +50,7 @@ public class CSVReader {
         String id = parts[0];
         String name = parts[1];
         String pack =  parts[2];
-        String price = parts[3];
+        String price = "$" + parts[3];
         boolean active = false;
         if (parts[4].matches("True"))
         {

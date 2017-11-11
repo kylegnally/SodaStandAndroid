@@ -5,31 +5,50 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/wine_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/wine_name_label"
-        android:textSize="28dp"
+        android:textAlignment="center"
+        android:textSize="28sp"
         android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/wine_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/wine_id_label"
-            android:layout_weight="1"
-            android:gravity="start"
-            android:textAlignment="textStart"
-            android:textSize="18dp"/>
+    <EditText
+        android:id="@+id/wine_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/wine_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/wine_price_label"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textAlignment="textEnd"
-            android:textSize="18dp"/>
+    <EditText
+        android:id="@+id/wine_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:textAlignment="viewEnd"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/wine_pack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:textAlignment="viewEnd"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/wine_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:textAlignment="viewEnd"
+        android:textSize="18sp"/>
+
+    <CheckBox
+        android:id="@+id/wine_active"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:textAlignment="viewEnd"
+        android:textSize="18sp"/>
 
 </LinearLayout>
