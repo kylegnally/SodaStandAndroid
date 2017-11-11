@@ -24,7 +24,8 @@ public class WineListFragment extends Fragment {
 
     private RecyclerView mWineRecyclerView;
     private WineAdapter mAdapter;
-    private ArrayList<WineItem> mWineList;
+    private WineShop mWineList;
+    private Context mContext;
 
     @Nullable
     @Override
@@ -33,17 +34,17 @@ public class WineListFragment extends Fragment {
 
         mWineRecyclerView = (RecyclerView) view.findViewById(R.id.wine_recycler_view);
         mWineRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mWineList = CSVReader.getWineList();
+        mWineList = WineShop.get(mContext);
 
-        updateUI(mWineList);
+        updateUI();
 
         return view;
     }
 
-    private void updateUI(ArrayList wineList) {
+    private void updateUI() {
 
         WineShop wineShop = WineShop.get(getActivity());
-        List<WineItem> wines = wineList;
+        List<WineItem> wines = wineShop.getWines();
 
         mAdapter = new WineAdapter(wines);
         mWineRecyclerView.setAdapter(mAdapter);

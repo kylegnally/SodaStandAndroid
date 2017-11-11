@@ -12,7 +12,7 @@ import java.util.List;
 public class WineShop {
 
      private static WineShop sWineShop;
-     private List<WineItem> mWines;
+     private ArrayList<WineItem> mWines;
 
      public static WineShop get (Context context) {
 
@@ -27,6 +27,12 @@ public class WineShop {
      private WineShop(Context context) {
          mWines = new ArrayList<>();
      }
+
+
+     public void addWineItem(String id, String name, String pack, String price, Boolean active) {
+         mWines.add(new WineItem(id, name, pack, price, active));
+     }
+
 
      public List<WineItem> getWines() {
          return mWines;
