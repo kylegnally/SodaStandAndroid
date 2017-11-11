@@ -58,7 +58,7 @@ public class WinePagerActivity extends FragmentActivity {
             if (mWines.get(i).getId().equals(wineId)) {
                 mViewPager.setCurrentItem(i);
                 break;
-                
+
             }
         }
     }
