@@ -25,7 +25,8 @@ public class WineFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //mWine = new WineItem();
+        String wineId = (String) getActivity().getIntent().getSerializableExtra(WineActivity.EXTRA_WINE_ID);
+        mWine = WineShop.get(getActivity()).getWine(wineId);
     }
 
     @Nullable
@@ -34,6 +35,7 @@ public class WineFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_wine, container, false);
 
         mProductName = (TextView) v.findViewById(R.id.wine_name);
+        mProductName.setText(mWine.getName());
         mProductName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int before, int after) {
@@ -54,6 +56,7 @@ public class WineFragment extends Fragment {
         });
 
         mProductId = (TextView) v.findViewById(R.id.wine_id);
+        mProductId.setText(mWine.getId());
         mProductId.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int before, int after) {
@@ -74,6 +77,7 @@ public class WineFragment extends Fragment {
         });
 
         mProductPrice = (TextView) v.findViewById(R.id.wine_price);
+        mProductPrice.setText(mWine.getPrice());
         mProductPrice.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int before, int after) {

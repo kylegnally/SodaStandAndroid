@@ -14,12 +14,9 @@ public class CSVReader {
 
     private Context mContext;
     private WineShop mWineShop;
-    // private static ArrayList<WineItem> mWine;
-
 
     public CSVReader(Context context) {
 
-        //mWine = new ArrayList<>();
         mContext = context;
         ReadCSV(mContext);
 
@@ -43,11 +40,6 @@ public class CSVReader {
         }
 
     }
-//
-//    public static ArrayList<WineItem> getWineList() {
-//        return mWine;
-//    }
-//
 
     private void ProcessOneLine(String line) {
 
@@ -67,10 +59,5 @@ public class CSVReader {
 
         mWineShop.addWineItem(id, name, pack, price, active);
 
-        //AddWineItem(id, name, pack, price, active);
     }
-//
-//    public void AddWineItem(String id, String name, String pack, String price, Boolean active) {
-//        mWine.add(new WineItem(id, name, pack, price, active));
-//    }
 }
