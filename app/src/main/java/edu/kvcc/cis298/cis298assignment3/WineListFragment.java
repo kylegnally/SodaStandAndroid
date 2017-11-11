@@ -37,8 +37,12 @@ public class WineListFragment extends Fragment {
         mWineList = WineShop.get(mContext);
 
         updateUI();
-
         return view;
+    }
+
+    public void onResume() {
+        super.onResume();
+        updateUI();
     }
 
     private void updateUI() {

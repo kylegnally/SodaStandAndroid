@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 
 public class WineActivity extends SingleFragmentActivity {
 
-    public static final String EXTRA_WINE_ID = "edu.kvcc.cis298.cis298assignment3.wine_id";
+    private static final String EXTRA_WINE_ID = "edu.kvcc.cis298.cis298assignment3.wine_id";
 
     public CSVReader mWineListCSV;
 
@@ -21,7 +21,10 @@ public class WineActivity extends SingleFragmentActivity {
 
         mWineListCSV = new CSVReader(this);
 
-        return new WineFragment();
+        String wineId = (String) getIntent().getSerializableExtra(EXTRA_WINE_ID);
+        return WineFragment.newInstance(wineId);
+
+        // return new WineFragment();
 
     }
 }

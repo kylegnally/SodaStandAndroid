@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 public class WineFragment extends Fragment {
 
+    private static final String ARG_WINE_ID = "wine_id";
+
     private WineItem mWine;
     private EditText mProductName;
     private EditText mProductId;
@@ -26,10 +28,20 @@ public class WineFragment extends Fragment {
     private EditText mProductPrice;
     private CheckBox mProductActive;
 
+    public static WineFragment newInstance(String wineId) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_WINE_ID, wineId);
+
+        WineFragment fragment = new WineFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String wineId = (String) getActivity().getIntent().getSerializableExtra(WineActivity.EXTRA_WINE_ID);
+        String wineId = (String) getArguments().getSerializable(ARG_WINE_ID);
+        // String wineId = (String) getActivity().getIntent().getSerializableExtra(WineActivity.EXTRA_WINE_ID);
         mWine = WineShop.get(getActivity()).getWine(wineId);
     }
 
