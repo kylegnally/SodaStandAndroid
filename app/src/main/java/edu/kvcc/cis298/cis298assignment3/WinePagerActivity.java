@@ -77,7 +77,7 @@ public class WinePagerActivity extends FragmentActivity {
         for (int i = 0; i < mWines.size(); i++) {
 
             // if the id of mWines equals the wineId
-            if (mWines.get(i).getId().equals(wineId)) {
+            if (mWines.get(i).getUUID().equals(wineId)) {
 
                 // set the ViewPager to that item
                 mViewPager.setCurrentItem(i);
