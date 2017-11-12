@@ -1,7 +1,7 @@
 # Assignment 3 - Master Detail Wine List with Fragments
 ## Due 11-13-2017
 ## Author
-
+Kyle Nally
 
 
 ## Description
@@ -36,6 +36,8 @@ Solution Requirements:
 * Should look like the screen shots provided
 * Remember Documentation, and README
 
+NOTE: Documentation for this application is located at the top of WineListActivity.java.
+
 ![Application Master Portrait Layout](http://barnesbrothers.homeserver.com/cis298/assignmentImages/assignment3a.jpg "Application Master Portrait Layout")
 ![Application Detail Portrait Layout](http://barnesbrothers.homeserver.com/cis298/assignmentImages/assignment3b.jpg "Application Detail Portrait Layout")
 
@@ -67,5 +69,7 @@ Through File System:   app/src/main/res/raw/
 ## Outside Resources Used
 
 Stack Overflow: "How to read csv file in android? [duplicate]", Karthik, Matthew Rudy et al., https://stackoverflow.com/questions/8499351/how-to-read-csv-file-in-android
+Stack Overflow: "Android Drawing Seperator/Divider Line in Layout?" Androider, Alex Kucherenko et al., https://stackoverflow.com/questions/5049852/android-drawing-separator-divider-line-in-layout
 
 ## Known Problems, Issues, And/Or Errors in the Program
+None.

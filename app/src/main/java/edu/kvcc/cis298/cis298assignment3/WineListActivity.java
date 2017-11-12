@@ -18,7 +18,7 @@ list. If the user presses the back button on their device at any time, the list 
 location in the list the user was viewing when they first entered the details page.
 
 This application uses a RecyclerView to display the main wine list, fragments to store each list item,
-and a ViewPager to handle swipe events on the details pages. 
+and a ViewPager to handle swipe events on the details pages.
 
  */
 
