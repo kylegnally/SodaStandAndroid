@@ -1,12 +1,15 @@
 package edu.kvcc.cis298.cis298assignment3;
 
+import java.util.UUID;
+
 /**
  * Created by kyleg on 10/29/2017.
  */
 
 public class WineItem {
 
-    // create some private variables for each element of each line of the CSV
+    // create some private variables for each element of each line of the CSV and a UUID for the wine ID
+    private UUID mUUID;
     private String mId;
     private String mName;
     private String mPack;
@@ -17,6 +20,7 @@ public class WineItem {
     public WineItem(String id, String name, String pack, String price, Boolean active) {
 
         // assign the variables to the constructor's requirements
+        this.mUUID = UUID.randomUUID();
         this.mId = id;
         this.mName = name;
         this.mPack = pack;
@@ -25,6 +29,15 @@ public class WineItem {
     }
 
     // getters and setters for the variables
+
+    public UUID getUUID() {
+        return mUUID;
+    }
+
+    public void setUUID(UUID UUID) {
+        mUUID = UUID;
+    }
+
     public String getId() {
         return mId;
     }

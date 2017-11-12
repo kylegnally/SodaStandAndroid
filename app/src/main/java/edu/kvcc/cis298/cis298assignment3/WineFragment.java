@@ -11,6 +11,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import java.util.UUID;
+
 /**
  * Created by kyleg on 11/6/2017.
  */
@@ -28,7 +30,7 @@ public class WineFragment extends Fragment {
 
     // WineFragment newInstance() method that will be
     // called when we need a new fragment
-    public static WineFragment newInstance(String wineId) {
+    public static WineFragment newInstance(UUID wineId) {
 
         // a bundle to store the args
         Bundle args = new Bundle();
@@ -51,7 +53,7 @@ public class WineFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         // get the string of the wineId from the intent used to start the host activity
-        String wineId = (String) getArguments().getSerializable(ARG_WINE_ID);
+        UUID wineId = (UUID) getArguments().getSerializable(ARG_WINE_ID);
 
         // use the singleton to get the wine item with that Id
         mWine = WineShop.get(getActivity()).getWine(wineId);

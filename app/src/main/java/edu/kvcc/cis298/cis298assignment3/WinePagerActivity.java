@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Created by kyleg on 11/11/2017.
@@ -25,7 +26,7 @@ public class WinePagerActivity extends FragmentActivity {
 
     // method to create an intent for the WinePager and
     // put the wineId as an extra, then return that intent
-    public static Intent newIntent(Context packageContext, String wineId) {
+    public static Intent newIntent(Context packageContext, UUID wineId) {
         Intent intent = new Intent(packageContext, WinePagerActivity.class);
         intent.putExtra(EXTRA_WINE_ID, wineId);
         return intent;
@@ -40,7 +41,7 @@ public class WinePagerActivity extends FragmentActivity {
         setContentView(R.layout.activity_wine_pager);
 
         // get the extra from the intent
-        String wineId = (String) getIntent().getSerializableExtra(EXTRA_WINE_ID);
+        UUID wineId = (UUID) getIntent().getSerializableExtra(EXTRA_WINE_ID);
 
         // get the widget from the view
         mViewPager = (ViewPager) findViewById(R.id.activity_wine_pager_view_pager);
@@ -62,7 +63,7 @@ public class WinePagerActivity extends FragmentActivity {
 
                 // create a fragment using the newInstance() static method,
                 // passing it the result stored in wineItem.getId()
-                return WineFragment.newInstance(wineItem.getId());
+                return WineFragment.newInstance(wineItem.getUUID());
             }
 
             // get the count from mWines.size

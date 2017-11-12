@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by kyleg on 11/7/2017.
@@ -51,9 +52,9 @@ public class WineShop {
 
     // getter for a single wine. Uses the ID of any given wine
     // as a unique identifier (its use is similar to a UUID in this case)
-    public WineItem getWine(String id) {
+    public WineItem getWine(UUID id) {
         for (WineItem wine : mWines) {
-            if (wine.getId().equals(id)) {
+            if (wine.getUUID().equals(id)) {
                 return wine;
             }
         }

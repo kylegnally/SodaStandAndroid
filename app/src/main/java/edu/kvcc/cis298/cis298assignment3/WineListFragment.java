@@ -120,7 +120,7 @@ public class WineListFragment extends Fragment {
         // is already in use.
         @Override
         public void onClick(View v) {
-            Intent intent = WinePagerActivity.newIntent(getActivity(), mWine.getId());
+            Intent intent = WinePagerActivity.newIntent(getActivity(), mWine.getUUID());
 
             // start the new activity with the intent we just created
             startActivity(intent);
