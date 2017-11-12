@@ -72,15 +72,15 @@ public class WinePagerActivity extends FragmentActivity {
             }
         });
 
-        // compare the Ids stored in getId() method of the
-        // item we got from the singleton to the Id of the extra
+        // loop until i is greater than the size of mWines
         for (int i = 0; i < mWines.size(); i++) {
+
+            // if the id of mWines equals the wineId
             if (mWines.get(i).getId().equals(wineId)) {
 
                 // set the ViewPager to that item
                 mViewPager.setCurrentItem(i);
                 break;
-
             }
         }
     }

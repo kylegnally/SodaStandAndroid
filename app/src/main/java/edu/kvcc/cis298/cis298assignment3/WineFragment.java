@@ -17,47 +17,84 @@ import android.widget.EditText;
 
 public class WineFragment extends Fragment {
 
+    // string we will use to store the wine Id extra
     private static final String ARG_WINE_ID = "wine_id";
 
+    // Where are the variables to store our widgets??? They can be
+    // converted to local variables! See below
+
+    // variable to hold an instance of the WineItem object
     private WineItem mWine;
 
+    // WineFragment newInstance() method that will be
+    // called when we need a new fragment
     public static WineFragment newInstance(String wineId) {
+
+        // a bundle to store the args
         Bundle args = new Bundle();
+
+        // put the string holding the wineId into the bundle
         args.putSerializable(ARG_WINE_ID, wineId);
 
+        // create a new fragment
         WineFragment fragment = new WineFragment();
+
+        // set the arguments, passing it args (which holds the wineId)
         fragment.setArguments(args);
+
+        // return the fragment
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // get the string of the wineId from the intent used to start the host activity
         String wineId = (String) getArguments().getSerializable(ARG_WINE_ID);
+
+        // use the singleton to get the wine item with that Id
         mWine = WineShop.get(getActivity()).getWine(wineId);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        // inflate the view and store it in a vriable, v, so we can set up listeners
         View v = inflater.inflate(R.layout.fragment_wine, container, false);
 
+        // The next several listener blocks are all basically identical, so I will
+        // only comment this one. We've converted the widget assignments to local variables,
+        // which is why we see an EditText preceding the actual variable here (instead of
+        // defining it at the top). We assign each one to its view, then call setText() on
+        // each of them (except the checkbox), using the getter in the WineItem instance
+        // to retrieve the value.
+        // Then we add an addTextChangedListener() to each. This appears to be an interface,
+        // which is why it adds beforeTextChanged(), onTextChanged(), and afterTextChanged()
+        // to each block when it is added. We aren't using two of those three methods, but
+        // they are still required (hence the assumption of being an interface).
         EditText productName = (EditText) v.findViewById(R.id.wine_name);
         productName.setText(mWine.getName());
         productName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int before, int after) {
 
+                // We aren't going to use this
+
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+                // use the setter to assign CharSequence s to this EditText fiels
                 mWine.setName(s.toString());
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+
+                // we aren't using this either
 
             }
         });
@@ -125,15 +162,24 @@ public class WineFragment extends Fragment {
             }
         });
 
+        // set up a listener for the checkbox. This, apparently, is NOT
+        // an interface, probably because there are only two possible states
+        // and so doesn't require the handling of anything but a bool
         CheckBox productActive = (CheckBox) v.findViewById(R.id.wine_active);
+
+        // this line toggles the state of the checkbox based on
+        // the value stored in the WineItem isActive() getter
         productActive.setChecked(mWine.isActive());
         productActive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+                // use the setter to set its status
                 mWine.setActive(b);
             }
         });
 
+        // return the view
         return v;
     }
 }
