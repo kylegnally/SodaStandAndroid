@@ -1,10 +1,9 @@
 <resources>
     <string name="app_name">CIS298Assignment3</string>
-    <string name="wine_title_hint">Enter a name for this beverage.</string>
-    <string name="wine_name_label">Name</string>
+    <string name="wine_name_label">Details</string>
     <string name="wine_id_label">Id:</string>
     <string name="wine_pack_label">Pack:</string>
     <string name="wine_price_label">Price:</string>
     <string name="wine_active_label">Active:</string>
-
+    <string name="dollar_sign">$</string>
 </resources>

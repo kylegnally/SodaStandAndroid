@@ -68,7 +68,7 @@ public class CSVReader {
         String id = parts[0];
         String name = parts[1];
         String pack =  parts[2];
-        String price = "$" + parts[3];
+        String price = mContext.getString(R.string.dollar_sign) + parts[3];
         boolean active = false;
 
         // use a regular expression to pattern match the boolean,
